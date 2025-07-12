@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lupa password</title>
+    <style>
+        :root {
+            --color-white: #fff;
+            --color-wb: #D4EBF8;
+            --color-hitam: #000;
+            --color-hijau-muda: #FFEAC5;
+            --color-hijau-medium: #FFDBB5;
+            --color-hijau-gelap: #6C4E31;
+            --color-hijau-dark: #603F26;
+            --color-kuneng: #eeff00;
+        }
+
+        * {
+            /*border: 1px solid red !important;*/
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url(/assets/background/background-login.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: var(--color-hijau-muda);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+            color: var(--color-hijau-dark);
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: var(--color-hijau-dark);
+            font-size: 0.9em;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #000;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: var(--color-hijau-dark);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.1);
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .forgot-password a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--color-hijau-dark);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: var(--color-hijau-gelap);
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .signup-link a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 20px;
+            }
+
+            .login-header h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>lupa password!</h1>
+            <p>Selamat datang kembali sahabat hewan</p>
+        </div>
+        <form id="loginForm" onsubmit="return login(event)">
+           
+            
+            
+                <!-- <label>password</label>
+                <input type="password" class="input-group" id="passwords" name="password" placeholder="Masukkan password anda" required="" minlength="10"> -->
+                <label>username</label>
+                <input type="text" class="input-group" id="username" name="usernames" placeholder="Masukkan username anda" required="" >
+       
+              
+            
+            <button type="submit" class="login-button" >Login</button>
+            
+                Tidak memiliki akun? <a class="signup-link" href="sign-up.html">Registers</a>
+           
+        </form>
+    </div>
+
+
+</body>
+
+<script>
+    
+    function login(event) {
+      event.preventDefult();
+    //     // Mengambil nilai dari input password dan username
+    //     // const passwordInput = document.getElementById('passwords').value;
+        let usernameInput = document.getElementsByClassName('input-group').value;
+
+        if(usernameInput.length <8){
+            alert('username tidak memenuhi syarat')
+return false;
+        }
+    // //     // Menyimpan password dan username ke sessionStorage
+    // //     // sessionStorage.setItem('passwords', passwordInput);
+        sessionStorage.setItem('username', usernameInput);
+
+    //     // Mengarahkan pengguna ke halaman login
+        window.location.href = "login.html";
+        return true;
+    }
+
+</script>
+</html>
